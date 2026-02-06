@@ -1,74 +1,142 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="style/style.css">
+    <title>Portfolio - AIT CHERIF M'hand</title>
+    <link rel="stylesheet" href="https://unpkg.com/xp.css">
 </head>
+
 <body>
-    <div>
-        <a href="#">🇫🇷</a>
-        <a href="src/indexEN.html">🇬🇧</a>
+
+    <div class="window main-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Mon Portfolio - AIT CHERIF M'hand</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="window-body">
+
+            <div style="overflow: hidden; padding-bottom: 10px;">
+                <button id="langToggle" class="lang-switch-btn">
+                    <span class="lang-fr">🇬🇧 English</span>
+                    <span class="lang-en">🇫🇷 Français</span>
+                </button>
+            </div>
+
+            <header>
+                <div class="profile-container">
+                    <img src="img/pic.jpg" alt="Profile" class="profile-img">
+                    <h1>AIT CHERIF M'hand</h1>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="#about"><span class="lang-fr">Qui suis-je?</span><span class="lang-en">Who am
+                                    I?</span></a></li>
+                        <li><a href="#projects"><span class="lang-fr">Projets</span><span
+                                    class="lang-en">Projects</span></a></li>
+                        <li><a href="https://github.com/AitcherifMhand" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/m%E2%80%99hand-ait-cherif-a25105291/"
+                                target="_blank">LinkedIn</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section id="about">
+                <fieldset>
+                    <legend><span class="lang-fr">À propos</span><span class="lang-en">About Me</span></legend>
+                    <p class="text">
+                        <span class="lang-fr">
+                            Bonjour, je suis <strong>AIT CHERIF M'hand</strong>.<br>
+                            Je suis un étudiant en L3 informatique passionné par les ordinateurs et les nouvelles
+                            technologies, surtout la programmation.
+                            Motivé par une grande curiosité et une faim pour le défi, j'aime utiliser mon code pour
+                            résoudre toutes sortes de puzzles.
+                        </span>
+                        <span class="lang-en">
+                            Hello, I am <strong>AIT CHERIF M'hand</strong>.<br>
+                            I am a 3rd-year Computer Science student passionate about computers and new technologies,
+                            especially programming.
+                            Driven by great curiosity and a hunger for challenges, I love using my code to solve all
+                            kinds of puzzles.
+                        </span>
+                    </p>
+                </fieldset>
+
+                <blockquote>
+                    <p>"The universe has a beginning, but no end. — Infinite." <br>- Okabe Rintarou</p>
+                </blockquote>
+                <blockquote>
+                    <p class="lang-fr">"Tous ces moments se perdront dans l'oubli... comme... les larmes... dans la
+                        pluie."</p>
+                    <p class="lang-en">"All those moments will be lost in time... like tears... in rain."</p>
+                </blockquote>
+            </section>
+
+            <section id="projects">
+                <fieldset>
+                    <legend><span class="lang-fr">Projets</span><span class="lang-en">Projects</span></legend>
+                    <div class="projects-grid">
+                        <div class="project-item">
+                            <h3>Multi-Thread Messaging</h3>
+                            <p class="lang-fr">Messagerie client-serveur en C, multi-thread, permettant des connexions
+                                simultanées.</p>
+                            <p class="lang-en">Multi-threaded client-server messaging system in C supporting
+                                simultaneous connections.</p>
+                            <a href="https://github.com/AitcherifMhand/Multi-thread-client-server"
+                                target="_blank">GitHub</a>
+                        </div>
+
+                        <div class="project-item">
+                            <h3>Bike Management</h3>
+                            <p class="lang-fr">Implémentation d’un système de gestion de vélos en Java (POO).</p>
+                            <p class="lang-en">Implementation of a bike management system in Java (OOP).</p>
+                            <a href="https://github.com/AitcherifMhand/Bike-management-service"
+                                target="_blank">GitHub</a>
+                        </div>
+
+                        <div class="project-item">
+                            <h3>
+                                <span class="lang-fr">Application Android Personnages Disney</span>
+                                <span class="lang-en">Disney Characters Android App</span>
+                            </h3>
+                            <p class="lang-fr">Application Android utilisant une API pour afficher les détails des
+                                personnages Disney et sauvegarder les favoris pour une consultation hors ligne.</p>
+                            <p class="lang-en">Android application that uses an API to display Disney character details
+                                and save favorites for offline viewing.</p>
+                            <a href="https://github.com/AitcherifMhand/API-Android-APP" target="_blank">GitHub</a>
+                        </div>
+
+                        <div class="project-item">
+                            <h3>
+                                <span class="lang-fr">TreeFTP</span>
+                                <span class="lang-en">TreeFTP</span>
+                            </h3>
+                            <p class="lang-fr">Client FTP en Java (Maven) reproduisant la commande Linux “tree” avec
+                                différents paramètres.</p>
+                            <p class="lang-en">Java (Maven) FTP client that reproduces the Linux “tree” command with
+                                various parameters.</p>
+                            <a href="https://github.com/AitcherifMhand/treeFTPclient" target="_blank">GitHub</a>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </section>
+            <div class="status-bar" style="margin-top: 15px;">
+                <p class="status-bar-field">ait-cherif.mhand@outlook.com</p>
+                <p class="status-bar-field"><span class="lang-fr">Prêt</span><span class="lang-en">Ready</span></p>
+                <p class="status-bar-field">CPU Usage: 10%</p>
+            </div>
+        </div>
     </div>
-    <header>
-        <h1>Mon Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">Qui suis-je?</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="https://github.com/Ait-Cherif-M-hand/" target="_blank">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/m%E2%80%99hand-ait-cherif-a25105291/" target="_blank">LinkedIn</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>Qui suis-je?</h2>
-        <div class="container">
-        <figure>
-            <img src="img/pic.jpg" alt="Profile Picture">
-            <figcaption>Moi</figcaption>
-        </figure>
-        <p class="text">
-            Bonjour Je suis <strong>AIT CHERIF M'hand</strong>.<br>
-            Je suis un étudiant en L3 informatique passionné par les ordinateurs et les nouvelles technologies, surtout la programmation.
-            Motivé par une grande curiosité et une faim pour le défi ,j'aime utliser mon code pour résoudre toute sortes de puzzles.
-        </p>
-        </div>
-        <blockquote>
-            <p>"The universe has a beginning, but no end. — Infinite."</p><p>Okabe Rintarou</p>
-        </blockquote>
-        <blockquote>
-            <p>"Tous ces moments se perdront dans l'oubli... comme... les larmes... dans la pluie."</p>
-        </blockquote>
-    </section>
-
-    <section id="projects">
-        <h2>Projets</h2>
-        <div class="projects-grid">
-            <div class="project">
-                <h3>Pong</h3>
-                <p>Jeu pong en python</p>
-                <a href="https://github.com/Ait-Cherif-M-hand/Pong-clone" target="_blank">Voir sur GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Snake</h3>
-                <p>Implementation de fameux jeu nokia en java avec les principes de la programmation orienté objet.</p>
-                <a href="https://github.com/Ait-Cherif-M-hand/Snake-java" target="_blank">Voir sur GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Jeux d'échecs</h3>
-                <p>Implémentation d'un jeu d'échecs sur le Shell en C++. On peut jouer a 2 ou avec l'ordi.</p>
-                <a href="https://github.com/Ait-Cherif-M-hand/Chess-game" target="_blank">Voir sur GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>Contactez-moi: ait-cherif.mhand@outlook.com</p>
-    </footer>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
