@@ -5,10 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - AIT CHERIF M'hand</title>
     <link id="theme-stylesheet" rel="stylesheet" href="https://unpkg.com/xp.css" />
+    <link id="98-stylesheet" rel="stylesheet" href="https://unpkg.com/98.css" disabled />
+    <link id="macos-stylesheet" rel="stylesheet" href="https://unpkg.com/@sakun/system.css" disabled />
+    <link id="dos-stylesheet" rel="stylesheet" href="https://unpkg.com/tuicss@1.0.2/css/tui.css" disabled />
     <link rel="stylesheet" href="style/style.css" />
   </head>
 
   <body>
+    <div id="bootScreen" class="boot-screen">
+      <div class="boot-animation">
+        <div class="boot-text">PORTFOLIO OS v3.14 • Copyright 2026</div>
+        <div class="boot-lines">
+          <div class="boot-line"><span class="boot-cursor">></span> Initializing kernel...</div>
+          <div class="boot-line"><span class="boot-cursor">></span> Loading cybersecurity modules...</div>
+          <div class="boot-line"><span class="boot-cursor">></span> Mounting profiles...</div>
+          <div class="boot-line"><span class="boot-cursor">></span> Configuring themes...</div>
+          <div class="boot-line"><span class="boot-cursor">></span> <span id="bootStatus">Ready</span></div>
+        </div>
+      </div>
+    </div>
+
     <div class="window main-window">
       <div class="title-bar">
         <div class="title-bar-text">Mon Portfolio - AIT CHERIF M'hand</div>
@@ -19,6 +35,36 @@
         </div>
       </div>
 
+      <div id="themeModal" class="theme-modal" style="display: none;">
+        <div class="theme-modal-content">
+          <h3>Select OS Theme</h3>
+          <div class="theme-options">
+            <button class="theme-option" data-theme="xp">
+              <span class="theme-icon">🪟</span>
+              <span class="theme-name">Windows XP</span>
+            </button>
+            <button class="theme-option" data-theme="7">
+              <span class="theme-icon">🪟</span>
+              <span class="theme-name">Windows 7</span>
+            </button>
+            <button class="theme-option" data-theme="98">
+              <span class="theme-icon">🪟</span>
+              <span class="theme-name">Windows 98</span>
+            </button>
+            <button class="theme-option" data-theme="macos">
+              <span class="theme-icon">🍎</span>
+              <span class="theme-name">macOS</span>
+            </button>
+            <button class="theme-option" data-theme="dos">
+              <span class="theme-icon">⌨️</span>
+              <span class="theme-name">MS-DOS</span>
+            </button>
+          </div>
+          <button id="closeThemeModal" class="theme-close">Close</button>
+        </div>
+      </div>
+      <div id="themeModalBackdrop" class="theme-modal-backdrop" style="display: none;"></div>
+
       <div class="window-body">
         <div style="overflow: hidden; padding-bottom: 10px">
           <button id="langToggle" class="lang-switch-btn">
@@ -26,7 +72,7 @@
             <span class="lang-en">🇫🇷 Français</span>
           </button>
           <button id="themeToggle" class="lang-switch-btn" style="margin-right: 10px;">
-            Win 7
+            🖥️ <span class="lang-fr">OS</span><span class="lang-en">OS</span>
           </button>
         </div>
 
@@ -48,6 +94,18 @@
                 <a href="#about"
                   ><span class="lang-fr">Qui suis-je?</span
                   ><span class="lang-en">Who am I?</span></a
+                >
+              </li>
+              <li>
+                <a href="#skills"
+                  ><span class="lang-fr">Compétences</span
+                  ><span class="lang-en">Skills</span></a
+                >
+              </li>
+              <li>
+                <a href="#cv"
+                  ><span class="lang-fr">CV</span
+                  ><span class="lang-en">CV</span></a
                 >
               </li>
               <li>
@@ -201,12 +259,223 @@
             </fieldset>
         </section>
 
+        <section id="skills">
+          <fieldset>
+            <legend>
+              <span class="lang-fr">Compétences Cybersécurité</span
+              ><span class="lang-en">Cybersecurity Skills</span>
+            </legend>
+            <div class="skills-container window-body">
+              <div class="skill-category">
+                <h4 class="lang-fr">Sécurité Offensive</h4>
+                <h4 class="lang-en" style="display: none;">Offensive Security</h4>
+                <ul>
+                  <li>Penetration Testing</li>
+                  <li>Vulnerability Assessment</li>
+                  <li>Exploitation Techniques</li>
+                  <li>Network Scanning & Enumeration</li>
+                </ul>
+              </div>
+              <div class="skill-category">
+                <h4 class="lang-fr">Sécurité Défensive</h4>
+                <h4 class="lang-en" style="display: none;">Defensive Security</h4>
+                <ul>
+                  <li>Incident Response</li>
+                  <li>Intrusion Detection</li>
+                  <li>Secure System Architecture</li>
+                  <li>Access Control & IAM</li>
+                </ul>
+              </div>
+              <div class="skill-category">
+                <h4 class="lang-fr">Outils & Technologies</h4>
+                <h4 class="lang-en" style="display: none;">Tools & Technologies</h4>
+                <ul>
+                  <li>Burp Suite • Wireshark • Metasploit</li>
+                  <li>Nmap • SQLmap • Hashcat</li>
+                  <li>OWASP Top 10</li>
+                  <li>Reverse Engineering & Analysis</li>
+                </ul>
+              </div>
+              <div class="skill-category">
+                <h4 class="lang-fr">Programmation Sécurisée</h4>
+                <h4 class="lang-en" style="display: none;">Secure Coding</h4>
+                <ul>
+                  <li>C • Python • Java • JavaScript</li>
+                  <li>Input Validation & Sanitization</li>
+                  <li>Cryptography Fundamentals</li>
+                  <li>Secure API Development</li>
+                </ul>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <section id="hacking-platforms">
+          <fieldset>
+            <legend>
+              <span class="lang-fr">Plateformes de Hacking</span
+              ><span class="lang-en">Hacking Platforms</span>
+            </legend>
+            <div class="platforms-grid window-body">
+              <div class="platform-card">
+                <h4>HackTheBox</h4>
+                <p class="lang-fr">Challenges de pénétration réalistes et environnements d'isolation.</p>
+                <p class="lang-en" style="display: none;">Realistic penetration testing and isolated environments.</p>
+                <a href="https://www.hackthebox.com/home/users/profile/profile-id" target="_blank" class="platform-link">
+                  <span class="lang-fr">Profil</span><span class="lang-en" style="display: none;">Profile</span>
+                </a>
+              </div>
+              <div class="platform-card">
+                <h4>TryHackMe</h4>
+                <p class="lang-fr">Apprentissage progressif et rooms pratiques en cybersécurité.</p>
+                <p class="lang-en" style="display: none;">Progressive learning and hands-on security rooms.</p>
+                <a href="https://tryhackme.com/p/Thevisionary" target="_blank" class="platform-link">
+                  <span class="lang-fr">Profil</span><span class="lang-en" style="display: none;">Profile</span>
+                </a>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <section id="certifications">
+          <fieldset>
+            <legend>
+              <span class="lang-fr">Certifications</span
+              ><span class="lang-en">Certifications</span>
+            </legend>
+            <div class="certifications-list window-body">
+              <div class="cert-item">
+                <div class="cert-info">
+                  <h4 class="lang-fr">Étudiant M1 Cybersécurité & IoT</h4>
+                  <h4 class="lang-en" style="display: none;">Master's Student - Cybersecurity & IoT</h4>
+                  <p class="lang-fr">Formation avancée en sécurité des systèmes et IoT</p>
+                  <p class="lang-en" style="display: none;">Advanced training in systems security and IoT</p>
+                </div>
+              </div>
+              <div class="cert-item">
+                <div class="cert-info">
+                  <h4 class="lang-fr">Développeur Sécurisé</h4>
+                  <h4 class="lang-en" style="display: none;">Secure Developer</h4>
+                  <p class="lang-fr">Spécialisation en développement et architecture sécurisés</p>
+                  <p class="lang-en" style="display: none;">Specialization in secure development and architecture</p>
+                </div>
+              </div>
+              <div class="cert-item">
+                <div class="cert-info">
+                  <h4 class="lang-fr">Architecture de Systèmes</h4>
+                  <h4 class="lang-en" style="display: none;">Systems Architecture</h4>
+                  <p class="lang-fr">Conception de systèmes complexes et sécurisés</p>
+                  <p class="lang-en" style="display: none;">Design of complex and secure systems</p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <section id="expertise">
+          <fieldset>
+            <legend>
+              <span class="lang-fr">Domaines d'Expertise</span
+              ><span class="lang-en">Areas of Expertise</span>
+            </legend>
+            <div class="expertise-grid window-body">
+              <div class="expertise-card">
+                <h4 class="lang-fr"> Cryptographie</h4>
+                <h4 class="lang-en" style="display: none;"> Cryptography</h4>
+                <p class="lang-fr">Algorithmes de chiffrement, hachage et signatures numériques</p>
+                <p class="lang-en" style="display: none;">Encryption algorithms, hashing, and digital signatures</p>
+              </div>
+              <div class="expertise-card">
+                <h4 class="lang-fr">Sécurité Réseau</h4>
+                <h4 class="lang-en" style="display: none;">Network Security</h4>
+                <p class="lang-fr">Protocoles, firewalls, VPN et architectures réseau sécurisées</p>
+                <p class="lang-en" style="display: none;">Protocols, firewalls, VPNs, and secure network architecture</p>
+              </div>
+              <div class="expertise-card">
+                <h4 class="lang-fr">Analyse de Malwares</h4>
+                <h4 class="lang-en" style="display: none;">Malware Analysis</h4>
+                <p class="lang-fr">Rétro-ingénierie et analyse comportementale de menaces</p>
+                <p class="lang-en" style="display: none;">Reverse engineering and behavioral threat analysis</p>
+              </div>
+              <div class="expertise-card">
+                <h4 class="lang-fr"> Architecture IoT</h4>
+                <h4 class="lang-en" style="display: none;"> IoT Architecture</h4>
+                <p class="lang-fr">Conception sécurisée de systèmes embarqués et IoT</p>
+                <p class="lang-en" style="display: none;">Secure design of embedded and IoT systems</p>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <section id="cv">
+          <fieldset>
+            <legend>
+              <span class="lang-fr">Curriculum Vitae</span
+              ><span class="lang-en">Curriculum Vitae</span>
+            </legend>
+            <button id="openPdfBtn" class="cv-pdf-button">
+              <span class="lang-fr"> Afficher mon CV</span>
+              <span class="lang-en" style="display: none;"> View my CV</span>
+            </button>
+            <div class="cv-container window-body">
+              <div class="cv-section">
+                <h3 class="lang-fr">Formation</h3>
+                <h3 class="lang-en" style="display: none;">Education</h3>
+                <div class="cv-item">
+                  <div class="cv-header">
+                    <strong class="lang-fr">Master 1 - Cybersécurité & IoT</strong>
+                    <strong class="lang-en" style="display: none;">Master's 1 - Cybersecurity & IoT</strong>
+                    <span class="cv-date">2024-2025</span>
+                  </div>
+                  <p class="cv-subtitle lang-fr">Université</p>
+                  <p class="cv-subtitle lang-en" style="display: none;">University</p>
+                </div>
+              </div>
+              <div class="cv-section">
+                <h3 class="lang-fr">Compétences Techniques</h3>
+                <h3 class="lang-en" style="display: none;">Technical Skills</h3>
+                <div class="skills-list">
+                  <span class="skill-badge">C</span>
+                  <span class="skill-badge">Python</span>
+                  <span class="skill-badge">Java</span>
+                  <span class="skill-badge">Penetration Testing</span>
+                  <span class="skill-badge">Network Security</span>
+                  <span class="skill-badge">Cryptography</span>
+                  <span class="skill-badge">Linux/Unix</span>
+                  <span class="skill-badge">IoT Security</span>
+                </div>
+              </div>
+              <div class="cv-section">
+                <h3 class="lang-fr">Langues</h3>
+                <h3 class="lang-en" style="display: none;">Languages</h3>
+                <div class="cv-item">
+                  <p>🇫🇷 <strong class="lang-fr">Français</strong><strong class="lang-en" style="display: none;">French</strong> - <span class="lang-fr">Natif</span><span class="lang-en" style="display: none;">Native</span></p>
+                  <p>🇬🇧 <strong class="lang-fr">Anglais</strong><strong class="lang-en" style="display: none;">English</strong> - <span class="lang-fr">Courant</span><span class="lang-en" style="display: none;">Fluent</span></p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
         <div class="status-bar" style="margin-top: 15px">
           <p class="status-bar-field">ait-cherif.mhand@outlook.com</p>
           <p class="status-bar-field">
             <span class="lang-fr">Prêt</span><span class="lang-en">Ready</span>
           </p>
-          <p class="status-bar-field">CPU Usage: 10%</p>
+          <p class="status-bar-field"><span class="lang-fr">CPU :</span><span class="lang-en">CPU:</span> <span id="cpuUsage">10</span>%</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pdfModalBackdrop" class="pdf-modal-backdrop">
+      <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+          <span><span class="lang-fr">Mon CV</span><span class="lang-en" style="display: none;">My CV</span></span>
+          <button id="closePdfBtn" class="pdf-modal-close">×</button>
+        </div>
+        <div class="pdf-iframe-container">
+          <iframe id="pdfIframe" src="" type="application/pdf"></iframe>
         </div>
       </div>
     </div>
