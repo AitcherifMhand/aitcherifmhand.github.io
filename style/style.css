@@ -40,7 +40,8 @@ body {
   transition: background 0.3s ease;
   position: relative;
   overflow-x: hidden;
-  background: transparent;
+  /* Clean professional retro background for default themes */
+  background-color: #008080; 
 }
 
 h1 {
@@ -48,7 +49,8 @@ h1 {
   margin: 12px 0 10px 0;
 }
 
-html::before {
+/* OUTRUN SYNTHWAVE STRICTLY FOR DOS MODE */
+html.dos-mode::before {
   content: "";
   position: fixed;
   bottom: 0px;
@@ -124,24 +126,6 @@ body.dos-mode {
   font-family: 'Courier New', monospace;
 }
 
-html.dos-mode::before {
-  background: #000080;
-  animation: none !important;
-}
-
-body.macos-mode {
-  padding: 10px;
-}
-
-html.macos-mode::before {
-  background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
-  animation: none;
-}
-
-html.macos-mode::after {
-  display: none;
-}
-
 /* Boot Animation Screen */
 .boot-screen {
   position: fixed;
@@ -214,14 +198,8 @@ html.macos-mode::after {
 .boot-line:nth-child(5) { animation-delay: 1s; }
 
 @keyframes fadeInLine {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .boot-cursor {
@@ -236,12 +214,9 @@ html.macos-mode::after {
   50%, 100% { opacity: 0.3; }
 }
 
-body::before {
+body.dos-mode::before {
   --sun-y: 30%;
   --sun-x: 50%;
-}
-
-body::before {
   box-shadow: inset -400px -150px 100px 60px rgba(255, 200, 0, 0.3), inset -350px -100px 100px 40px rgba(255, 150, 0, 0.15);
 }
 
@@ -259,14 +234,8 @@ body::before {
 }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* CV Section */
@@ -330,39 +299,56 @@ body::before {
 .skill-badge {
   display: inline-block;
   padding: 6px 12px;
-  background: #6584c1;
+  background: #2b5dcd;
   color: white;
-  border: 1px solid #4a5fa0;
+  border: 1px solid #1c3b82;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
 }
 
 .skill-badge:hover {
-  background: #7a94d1;
+  background: #3e73eb;
   transform: translateY(-1px);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* DOS Mode CV */
-body.dos-mode .cv-section {
+/* DOS Mode Base Classes */
+body.dos-mode .cv-section,
+body.dos-mode .skill-category,
+body.dos-mode .platform-card,
+body.dos-mode .cert-item,
+body.dos-mode .expertise-card,
+body.dos-mode .project-item {
   background: black;
   border: 2px solid #00ff00;
   color: #00ff00;
   box-shadow: none;
+  text-shadow: 0 0 3px #00ff00;
 }
 
-body.dos-mode .cv-section h3 {
+body.dos-mode .cv-section h3,
+body.dos-mode .skill-category h4,
+body.dos-mode .platform-card h4,
+body.dos-mode .cert-item h4,
+body.dos-mode .expertise-card h4,
+body.dos-mode .project-item h3 {
   color: #ffff55;
   border-color: #00ff00;
+  text-shadow: 0 0 3px #ffff55;
 }
 
 body.dos-mode .cv-item,
 body.dos-mode .cv-header strong,
 body.dos-mode .cv-date,
-body.dos-mode .cv-subtitle {
+body.dos-mode .cv-subtitle,
+body.dos-mode .skill-category ul,
+body.dos-mode .platform-card p,
+body.dos-mode .cert-item p,
+body.dos-mode .expertise-card p,
+body.dos-mode .project-item p {
   color: #00ff00;
 }
 
@@ -378,28 +364,10 @@ body.dos-mode .main-window {
   max-width: 100%;
 }
 
-body.dos-mode .window {
-  background: #000080;
-  border: none;
-}
-
-body.dos-mode .title-bar {
-  background: #00aaaa;
-  color: #000000;
-  border: none;
-  padding: 2px;
-}
-
-body.dos-mode .title-bar-text {
-  color: #000000;
-  font-weight: bold;
-  font-size: 14px;
-  text-shadow: none;
-}
-
-body.dos-mode .title-bar-controls {
-  display: none;
-}
+body.dos-mode .window { background: #000080; border: none; }
+body.dos-mode .title-bar { background: #00aaaa; color: #000000; border: none; padding: 2px; }
+body.dos-mode .title-bar-text { color: #000000; font-weight: bold; font-size: 14px; text-shadow: none; }
+body.dos-mode .title-bar-controls { display: none; }
 
 body.dos-mode .window-body {
   background: black;
@@ -415,24 +383,10 @@ body.dos-mode .window-body {
 }
 
 body.dos-mode h1,
-body.dos-mode h3 {
-  color: #ffff55;
-  text-shadow: 0 0 3px #ffff55;
-  font-weight: bold;
-}
-
-body.dos-mode h4 {
-  color: #ffff55;
-}
-
-body.dos-mode p {
-  color: #00ff00;
-}
-
-body.dos-mode .profile-img {
-  border: 2px solid #00ff00;
-  filter: brightness(1.2);
-}
+body.dos-mode h3 { color: #ffff55; text-shadow: 0 0 3px #ffff55; font-weight: bold; }
+body.dos-mode h4 { color: #ffff55; }
+body.dos-mode p { color: #00ff00; }
+body.dos-mode .profile-img { border: 2px solid #00ff00; filter: brightness(1.2); }
 
 body.dos-mode nav ul {
   background: #00aaaa;
@@ -459,129 +413,27 @@ body.dos-mode nav ul li a:hover {
   text-shadow: none;
 }
 
-body.dos-mode .project-item,
-body.dos-mode .skill-category,
-body.dos-mode .platform-card,
-body.dos-mode .expertise-card {
-  background: black;
-  border: 2px solid #00ff00;
-  color: #00ff00;
-  text-shadow: 0 0 3px #00ff00;
-}
-
-body.dos-mode .project-item h3,
-body.dos-mode .skill-category h4,
-body.dos-mode .platform-card h4,
-body.dos-mode .expertise-card h4 {
-  color: #ffff55;
-  text-shadow: 0 0 3px #ffff55;
-  border-color: #00ff00;
-}
-
-body.dos-mode .project-item p,
-body.dos-mode .skill-category ul,
-body.dos-mode .platform-card p,
-body.dos-mode .expertise-card p {
-  color: #00ff00;
-}
-
-body.dos-mode .project-item a {
-  background: #000080;
-  color: #ffff55;
-  border: 1px solid #00ff00;
-}
-
-body.dos-mode .project-item a:hover {
-  background: #00ff00;
-  color: #000080;
-}
-
+body.dos-mode .project-item a,
 body.dos-mode .platform-link {
   background: #000080;
   color: #ffff55;
   border: 1px solid #00ff00;
 }
 
+body.dos-mode .project-item a:hover,
 body.dos-mode .platform-link:hover {
   background: #00ff00;
   color: #000080;
 }
 
-body.dos-mode fieldset {
-  border: 2px solid #00ff00;
-  background: black;
-  color: #00ff00;
-}
+body.dos-mode fieldset { border: 2px solid #00ff00; background: black; color: #00ff00; }
+body.dos-mode legend { color: #ffff55; background: black; text-shadow: 0 0 3px #ffff55; }
+body.dos-mode .status-bar { background: #00aaaa; border: 2px solid #00ff00; color: #000000; }
+body.dos-mode .status-bar-field { color: #000000; border-right-color: #00ffff; border-bottom-color: #555555; font-weight: bold; }
+body.dos-mode .cert-badge { color: #ffff55; }
 
-body.dos-mode legend {
-  color: #ffff55;
-  background: black;
-  text-shadow: 0 0 3px #ffff55;
-}
-
-body.dos-mode .status-bar {
-  background: #00aaaa;
-  border: 2px solid #00ff00;
-  color: #000000;
-}
-
-body.dos-mode .status-bar-field {
-  color: #000000;
-  border-right-color: #00ffff;
-  border-bottom-color: #555555;
-  font-weight: bold;
-}
-
-body .title-bar-text {
-  color: white;
-  text-shadow: 1px 1px 0 #000080;
-  font-weight: bold;
-}
-
-body .window-body h1,
-body fieldset legend {
-  text-shadow: 1px 1px 1px #c0c0c0;
-}
-
-body.dos-mode .skill-category,
-body.dos-mode .platform-card,
-body.dos-mode .cert-item,
-body.dos-mode .expertise-card {
-  background: black;
-  border: 2px solid #00ff00;
-  color: #00ff00;
-  box-shadow: none;
-}
-
-body.dos-mode .skill-category h4,
-body.dos-mode .platform-card h4,
-body.dos-mode .cert-item h4,
-body.dos-mode .expertise-card h4 {
-  color: #ffff55;
-  border-color: #00ff00;
-}
-
-body.dos-mode .skill-category ul,
-body.dos-mode .platform-card p,
-body.dos-mode .cert-item p,
-body.dos-mode .expertise-card p {
-  color: #00ff00;
-}
-
-body.dos-mode .cert-badge {
-  color: #ffff55;
-}
-
-body.dos-mode .platform-link {
-  background: #000080;
-  color: #ffff55;
-  border: 1px solid #00ff00;
-}
-
-body.dos-mode .platform-link:hover {
-  background: #00ff00;
-  color: #000080;
-}
+body .title-bar-text { color: white; text-shadow: 1px 1px 0 #000080; font-weight: bold; }
+body .window-body h1, body fieldset legend { text-shadow: 1px 1px 1px #c0c0c0; }
 
 nav ul {
   padding: 0;
@@ -622,8 +474,6 @@ nav ul li a {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
-
-
 
 .projects-grid {
   display: grid;
@@ -724,93 +574,10 @@ nav ul li a {
   transition: all 0.1s;
 }
 
-.platform-link:hover {
-  background: #d0d0d0;
-}
-
+.platform-link:hover { background: #d0d0d0; }
 .platform-link:active {
   border-color: #808080 #dfdfdf #dfdfdf #808080;
   box-shadow: inset 1px 1px 0 0 #000;
-}
-
-.certifications-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.cert-item {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
-  background: linear-gradient(135deg, #ffffcc 0%, #ffffee 100%);
-  border: 2px solid;
-  border-color: #dfdfdf #808080 #808080 #dfdfdf;
-  box-shadow: 1px 1px 0 0 #000000, inset 1px 1px 0 0 #ffffff;
-  transition: all 0.2s ease;
-}
-
-.cert-item:hover {
-  box-shadow: 1px 1px 0 0 #000000, inset 1px 1px 0 0 #ffffff, 0 2px 8px rgba(0, 0, 0, 0.15);
-  transform: translateX(4px);
-}
-
-.cert-badge {
-  font-size: 28px;
-  min-width: 40px;
-  text-align: center;
-}
-
-.cert-info {
-  flex: 1;
-}
-
-.cert-info h4 {
-  margin: 0 0 6px 0;
-  color: #000080;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.cert-info p {
-  margin: 4px 0;
-  font-size: 12px;
-  color: #333;
-  line-height: 1.4;
-}
-
-.expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-.expertise-card {
-  padding: 16px;
-  background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fc 100%);
-  border: 2px solid;
-  border-color: #dfdfdf #808080 #808080 #dfdfdf;
-  box-shadow: 1px 1px 0 0 #000000, inset 1px 1px 0 0 #ffffff;
-  transition: all 0.2s ease;
-}
-
-.expertise-card:hover {
-  box-shadow: 1px 1px 0 0 #000000, inset 1px 1px 0 0 #ffffff, 0 3px 10px rgba(0, 100, 200, 0.2);
-  transform: translateY(-2px);
-}
-
-.expertise-card h4 {
-  margin: 0 0 10px 0;
-  color: #000080;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.expertise-card p {
-  margin: 0;
-  font-size: 12px;
-  color: #333;
-  line-height: 1.5;
 }
 
 .project-item {
@@ -841,12 +608,13 @@ nav ul li a {
   margin: 8px 0;
   flex-grow: 1;
   line-height: 1.5;
+  font-size: 13px;
 }
 
 .project-item a {
   display: inline-block;
   margin-top: 10px;
-  padding: 4px 12px;
+  padding: 6px 12px;
   background: #c0c0c0;
   border: 2px solid;
   border-color: #dfdfdf #808080 #808080 #dfdfdf;
@@ -855,6 +623,7 @@ nav ul li a {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.1s;
+  text-align: center;
 }
 
 .project-item a:active {
@@ -862,25 +631,10 @@ nav ul li a {
   box-shadow: inset 1px 1px 0 0 #000;
 }
 
-.project-item a:hover {
-  background: #d0d0d0;
-}
+.project-item a:hover { background: #d0d0d0; }
 
-blockquote {
-  background: #ffffcc;
-  border: 1px solid #999;
-  padding: 10px;
-  margin: 10px 0;
-  font-family: "Courier New", Courier, monospace;
-}
-
-html[lang="fr"] .lang-en {
-  display: none !important;
-}
-
-html[lang="en"] .lang-fr {
-  display: none !important;
-}
+html[lang="fr"] .lang-en { display: none !important; }
+html[lang="en"] .lang-fr { display: none !important; }
 
 .lang-switch-btn {
   float: right;
@@ -911,9 +665,7 @@ html[lang="en"] .lang-fr {
   color: #000;
 }
 
-.status-bar-field:last-child {
-  border-right: none;
-}
+.status-bar-field:last-child { border-right: none; }
 
 .theme-modal-backdrop {
   position: fixed;
@@ -941,14 +693,8 @@ html[lang="en"] .lang-fr {
 }
 
 @keyframes slideInCenter {
-  from {
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
+  from { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
 .theme-modal-content {
@@ -993,23 +739,14 @@ html[lang="en"] .lang-fr {
   font-weight: bold;
 }
 
-.theme-option:hover {
-  background: #dfdfdf;
-}
-
+.theme-option:hover { background: #dfdfdf; }
 .theme-option:active {
   border-color: #808080 #dfdfdf #dfdfdf #808080;
   box-shadow: inset 1px 1px 0 0 #000;
 }
 
-.theme-icon {
-  font-size: 24px;
-}
-
-.theme-name {
-  font-size: 12px;
-  text-align: center;
-}
+.theme-icon { font-size: 24px; }
+.theme-name { font-size: 12px; text-align: center; }
 
 .theme-close {
   width: 100%;
@@ -1027,10 +764,7 @@ html[lang="en"] .lang-fr {
   border-color: #808080 #dfdfdf #dfdfdf #808080;
   box-shadow: inset 1px 1px 0 0 #000;
 }
-
-.theme-close:hover {
-  background: #dfdfdf;
-}
+.theme-close:hover { background: #dfdfdf; }
 
 .pdf-modal-backdrop {
   display: none;
@@ -1045,9 +779,7 @@ html[lang="en"] .lang-fr {
   align-items: center;
 }
 
-.pdf-modal-backdrop.active {
-  display: flex;
-}
+.pdf-modal-backdrop.active { display: flex; }
 
 .pdf-modal-content {
   position: relative;
@@ -1087,10 +819,7 @@ html[lang="en"] .lang-fr {
   color: #000080;
 }
 
-.pdf-modal-close:hover {
-  background: #dfdfdf;
-}
-
+.pdf-modal-close:hover { background: #dfdfdf; }
 .pdf-modal-close:active {
   border-color: #808080 #dfdfdf #dfdfdf #808080;
   box-shadow: inset 1px 1px 0 0 #000;
@@ -1122,10 +851,7 @@ html[lang="en"] .lang-fr {
   transition: all 0.1s;
 }
 
-.cv-pdf-button:hover {
-  background: #dfdfdf;
-}
-
+.cv-pdf-button:hover { background: #dfdfdf; }
 .cv-pdf-button:active {
   border-color: #808080 #dfdfdf #dfdfdf #808080;
   box-shadow: inset 1px 1px 0 0 #000;
@@ -1133,286 +859,58 @@ html[lang="en"] .lang-fr {
 
 /* Tablet/Small Desktop Optimization */
 @media (max-width: 768px) {
-  body {
-    padding: 8px;
-  }
+  body { padding: 8px; }
+  .main-window { max-width: 95vw; }
 
-  html::before {
-    --hor: 65%;
-    animation: none;
-    background: linear-gradient(transparent 20%, var(--c5) 60%, var(--c3) 60% 70%, hsla(var(--c2hsl), 0.75), transparent 150%),
-                repeating-linear-gradient(90deg, transparent 0px 2px, var(--c3) 3px 4px),
-                radial-gradient(circle at center, transparent min(45vh, 45vw), hsla(var(--c2hsl), 0.75) min(65vh, 65vw), var(--c3) 120%),
-                linear-gradient(var(--c5) 60%, var(--c3) 60%, var(--c2) 100%) !important;
-  }
+  nav ul { flex-direction: column; gap: 0; padding: 8px 0; }
+  nav ul li { width: 100%; }
+  nav ul li a { display: block; padding: 8px; border-bottom: 1px solid #c0c0c0; font-size: 13px; }
+  nav ul li:last-child a { border-bottom: none; }
 
-  .main-window {
-    max-width: 95vw;
-  }
-
-  html::before {
-    filter: brightness(1.05);
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 0;
-    padding: 8px 0;
-  }
-
-  nav ul li {
-    width: 100%;
-  }
-
-  nav ul li a {
-    display: block;
-    padding: 8px;
-    border-bottom: 1px solid #c0c0c0;
-    font-size: 13px;
-  }
-
-  nav ul li:last-child a {
-    border-bottom: none;
-  }
-
-  .profile-container {
-    padding: 8px;
-    margin-bottom: 15px;
-  }
-
-  .projects-grid {
+  .profile-container { padding: 8px; margin-bottom: 15px; }
+  .projects-grid, .skills-container, .platforms-grid, .expertise-grid, .cv-container {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 
-  .skills-container {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .platforms-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .expertise-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .cv-container {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .skill-category,
-  .platform-card,
-  .expertise-card,
-  .project-item,
-  .cert-item {
-    padding: 12px;
-  }
-
-  .skill-category h4,
-  .platform-card h4,
-  .expertise-card h4,
-  .project-item h3 {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-
-  .skill-category ul,
-  .skill-category li {
-    font-size: 12px;
-    margin: 4px 0;
-  }
-
-  .platform-card p {
-    font-size: 12px;
-  }
-
-  .expertise-card p {
-    font-size: 11px;
-  }
-
-  .project-item p {
-    font-size: 12px;
-  }
-
-  .theme-modal-content {
-    min-width: auto;
-    max-width: calc(100vw - 20px);
-    padding: 15px;
-  }
-
-  .theme-options {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
-  }
-
-  .theme-option {
-    padding: 12px 8px;
-    gap: 6px;
-  }
-
-  .theme-icon {
-    font-size: 20px;
-  }
-
-  .theme-name {
-    font-size: 11px;
-  }
-
-  .lang-switch-btn {
-    min-width: 65px;
-    font-size: 11px;
-    padding: 6px 8px;
-    margin-right: 5px;
-  }
-
-  .cert-item {
-    gap: 12px;
-  }
-
-  .cert-badge {
-    font-size: 24px;
-    min-width: 35px;
-  }
-
-  .cert-info h4 {
-    font-size: 13px;
-  }
-
-  .cert-info p {
-    font-size: 11px;
-  }
+  .skill-category, .platform-card, .expertise-card, .project-item, .cert-item { padding: 12px; }
+  .theme-modal-content { min-width: auto; max-width: calc(100vw - 20px); padding: 15px; }
+  .theme-options { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+  .theme-option { padding: 12px 8px; gap: 6px; }
+  .lang-switch-btn { min-width: 65px; font-size: 11px; padding: 6px 8px; margin-right: 5px; }
 }
 
 /* Mobile Optimization */
 @media (max-width: 480px) {
-  body {
-    padding: 4px;
-  }
+  body { padding: 4px; }
+  .main-window { max-width: 100%; width: 100%; }
+  .window-body { padding: 10px !important; }
+  .profile-container { padding: 4px; margin-bottom: 12px; }
 
-  html::before {
-    --hor: 65%;
-    filter: brightness(0.9);
-  }
+  h2 { font-size: 14px; }
+  h3 { font-size: 13px; }
+  nav { margin: 8px 0; }
 
-  .main-window {
-    max-width: 100%;
-    width: 100%;
-  }
+  nav ul { padding: 4px 0; gap: 0; flex-direction: column; }
+  nav ul li { width: 100%; }
+  nav ul li a { font-size: 11px; padding: 6px; border-bottom: 1px solid #c0c0c0; display: block; }
+  nav ul li:last-child a { border-bottom: none; }
 
-  .window-body {
-    padding: 10px !important;
-  }
-
-  .profile-container {
-    padding: 4px;
-    margin-bottom: 12px;
-  }
-
-  h2 {
-    font-size: 14px;
-  }
-
-  h3 {
-    font-size: 13px;
-  }
-
-  nav {
-    margin: 8px 0;
-  }
-
-  nav ul {
-    padding: 4px 0;
-    gap: 0;
-    flex-direction: column;
-  }
-
-  nav ul li {
-    width: 100%;
-  }
-
-  nav ul li a {
-    font-size: 11px;
-    padding: 6px;
-    border-bottom: 1px solid #c0c0c0;
-    display: block;
-  }
-
-  nav ul li:last-child a {
-    border-bottom: none;
-  }
-
-  .projects-grid,
-  .skills-container,
-  .platforms-grid,
-  .expertise-grid,
-  .cv-container,
-  .certifications-list {
+  .projects-grid, .skills-container, .platforms-grid, .expertise-grid, .cv-container, .certifications-list {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  .skill-category,
-  .platform-card,
-  .expertise-card,
-  .project-item,
-  .cert-item,
-  .cv-section {
+  .skill-category, .platform-card, .expertise-card, .project-item, .cert-item, .cv-section {
     padding: 10px;
     border: 1px solid;
     border-color: #dfdfdf #808080 #808080 #dfdfdf;
     box-shadow: none;
   }
 
-  .skill-category h4,
-  .platform-card h4,
-  .expertise-card h4,
-  .project-item h3,
-  .cv-section h3 {
-    font-size: 12px;
-    margin: 0 0 8px 0;
-    padding-bottom: 6px;
-  }
-
-  .skill-category ul {
-    padding-left: 16px;
-    margin: 4px 0;
-  }
-
-  .skill-category li {
-    font-size: 11px;
-    margin: 3px 0;
-  }
-
-  .platform-card p {
-    font-size: 11px;
-    margin: 6px 0;
-  }
-
-  .expertise-card p {
-    font-size: 10px;
-  }
-
-  .project-item p {
-    font-size: 11px;
-    margin: 6px 0;
-  }
-
-  .project-item a {
-    padding: 4px 8px;
-    font-size: 10px;
-    margin-top: 8px;
-  }
-
-  .platform-link {
-    padding: 5px 12px;
-    font-size: 10px;
-    margin-top: 8px;
-  }
+  .project-item p { font-size: 11px; margin: 6px 0; }
+  .project-item a { padding: 4px 8px; font-size: 10px; margin-top: 8px; }
+  .platform-link { padding: 5px 12px; font-size: 10px; margin-top: 8px; }
 
   .lang-switch-btn {
     min-width: 55px;
@@ -1433,198 +931,21 @@ html[lang="en"] .lang-fr {
     max-height: 70vh;
     overflow-y: auto;
   }
-
-  .theme-modal-content {
-    min-width: auto;
-    max-width: calc(100vw - 16px);
-    width: calc(100vw - 16px);
-    padding: 12px;
-  }
-
-  .theme-modal-content h3 {
-    font-size: 14px;
-    margin-bottom: 12px;
-  }
-
-  .theme-options {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 6px;
-    margin-bottom: 12px;
-  }
-
-  .theme-option {
-    padding: 10px 6px;
-    gap: 4px;
-    font-size: 10px;
-  }
-
-  .theme-icon {
-    font-size: 18px;
-  }
-
-  .theme-name {
-    font-size: 9px;
-  }
-
-  .theme-close {
-    padding: 6px;
-    font-size: 11px;
-  }
-
-  /* Boot Screen Mobile */
-  .boot-animation {
-    width: 95%;
-    max-width: calc(100vw - 10px);
-    padding: 15px;
-    border: 2px solid #00ff00;
-  }
-
-  .boot-text {
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-
-  .boot-line {
-    font-size: 11px;
-    line-height: 1.4;
-  }
-
-  .boot-cursor {
-    margin-right: 6px;
-  }
-
-  /* CV Section Mobile */
-  .cv-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .cv-date {
-    font-size: 10px;
-  }
-
-  .cv-subtitle {
-    font-size: 10px;
-  }
-
-  .cv-item {
-    margin: 8px 0;
-  }
-
-  /* Certificate Badge Mobile */
-  .cert-item {
-    gap: 8px;
-  }
-
-  .cert-badge {
-    font-size: 20px;
-    min-width: 30px;
-  }
-
-  .cert-info h4 {
-    font-size: 11px;
-    margin-bottom: 4px;
-  }
-
-  .cert-info p {
-    font-size: 9px;
-  }
-
-  /* Skills List Mobile */
-  .skills-list {
-    gap: 4px;
-  }
-
-  .skill-badge {
-    padding: 4px 8px;
-    font-size: 10px;
-  }
+  .theme-modal-content { min-width: auto; max-width: calc(100vw - 16px); width: calc(100vw - 16px); padding: 12px; }
 
   /* PDF Modal Mobile */
-  .pdf-modal-content {
-    width: 100vw;
-    height: 100vh;
-    border: none;
-    box-shadow: none;
-  }
-
-  .pdf-modal-header {
-    font-size: 12px;
-    padding: 3px 2px;
-  }
-
-  .pdf-modal-close {
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
-  }
+  .pdf-modal-content { width: 100vw; height: 100vh; border: none; box-shadow: none; }
+  .pdf-modal-header { font-size: 12px; padding: 3px 2px; }
+  .pdf-modal-close { width: 24px; height: 24px; font-size: 14px; }
 }
 
-/* Extra Small Devices */
-@media (max-width: 360px) {
-  .main-window {
-    max-width: 100%;
-  }
-
-  h2 {
-    font-size: 13px;
-  }
-
-  h3 {
-    font-size: 12px;
-  }
-
-  .lang-switch-btn {
-    min-width: 50px;
-    font-size: 8px;
-    padding: 3px 4px;
-  }
-
-  .skill-category h4,
-  .platform-card h4,
-  .project-item h3 {
-    font-size: 11px;
-  }
-
-  .theme-options {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .theme-modal-content {
-    padding: 10px;
-  }
-
-  .theme-modal-content h3 {
-    font-size: 12px;
-  }
-}
-
-/* Touch-friendly optimizations - disable transforms on mobile */
 @media (hover: none) and (pointer: coarse) {
-  .profile-img:hover {
-    transform: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .skill-category:hover,
-  .platform-card:hover,
-  .expertise-card:hover,
-  .project-item:hover,
-  .cert-item:hover {
+  .profile-img:hover { transform: none; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+  .skill-category:hover, .platform-card:hover, .expertise-card:hover, .project-item:hover, .cert-item:hover {
     transform: none;
   }
-
-  .project-item a:active,
-  .platform-link:active,
-  .theme-option:active,
-  .theme-close:active,
-  .lang-switch-btn:active {
+  .project-item a:active, .platform-link:active, .theme-option:active, .theme-close:active, .lang-switch-btn:active {
     border-color: #808080 #dfdfdf #dfdfdf #808080;
     box-shadow: inset 1px 1px 0 0 #000;
-  }
-
-  nav ul li a {
-    -webkit-tap-highlight-color: transparent;
   }
 }

@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const bootScreen = document.getElementById("bootScreen");
   const mainWindow = document.querySelector(".main-window");
   const bootStatus = document.getElementById("bootStatus");
-  const themes = ["xp", "7", "98", "macos", "dos"];
+  // macOS removed from themes array
+  const themes = ["7", "xp", "98", "dos"]; 
   
   const randomTheme = themes[Math.floor(Math.random() * themes.length)];
   
@@ -12,14 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
       bootStatus.style.color = "#00ff00";
     }
     bootScreen.classList.add("hidden");
-    switchTheme(randomTheme);
+    // Ensure default theme isn't jarring on mobile by defaulting to 7
+    switchTheme("7"); 
     mainWindow.classList.add("visible");
   }, 3000);
 
   function updateCPU() {
     const cpuUsage = document.getElementById("cpuUsage");
     if (cpuUsage) {
-      const randomCPU = Math.floor(Math.random() * 80) + 5; 
+      const randomCPU = Math.floor(Math.random() * 30) + 5; 
       cpuUsage.textContent = randomCPU;
     }
   }
@@ -125,21 +127,19 @@ const htmlTag = document.documentElement;
 const mainWindow = document.querySelector(".main-window");
 const body = document.body;
 
-let currentTheme = "xp";
+let currentTheme = "7";
 
 const themeStylesheet = document.getElementById("theme-stylesheet");
 const stylesheet98 = document.getElementById("98-stylesheet");
-const stylesheetMacOS = document.getElementById("macos-stylesheet");
 const stylesheetDOS = document.getElementById("dos-stylesheet");
 
 function switchTheme(theme) {
   themeStylesheet.disabled = true;
   stylesheet98.disabled = true;
-  stylesheetMacOS.disabled = true;
   stylesheetDOS.disabled = true;
 
-  body.classList.remove("dos-mode", "macos-mode");
-  htmlTag.classList.remove("dos-mode", "macos-mode");
+  body.classList.remove("dos-mode");
+  htmlTag.classList.remove("dos-mode");
 
   currentTheme = theme;
 
@@ -158,11 +158,6 @@ function switchTheme(theme) {
       stylesheet98.disabled = false;
       mainWindow.classList.remove("glass", "active");
       break;
-    case "macos":
-      stylesheetMacOS.disabled = false;
-      body.classList.add("macos-mode");
-      htmlTag.classList.add("macos-mode");
-      break;
     case "dos":
       stylesheetDOS.disabled = false;
       body.classList.add("dos-mode");
@@ -170,6 +165,4 @@ function switchTheme(theme) {
       mainWindow.classList.remove("glass", "active");
       break;
   }
-
 }
-
